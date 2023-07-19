@@ -8,12 +8,12 @@ variable "vpc_cidr_block" {
   default     = "10.0.0.0/16"
 }
 
-variable "public_subnet_cidr_block" {
+variable "public_a_subnet_cidr_block" {
   description = "CIDR block for the public subnet"
   default     = "10.0.0.0/24"
 }
 
-variable "private_subnet_cidr_block" {
+variable "public_b_subnet_cidr_block" {
   description = "CIDR block for the private subnet"
   default     = "10.0.1.0/24"
 }
@@ -25,7 +25,7 @@ variable "allow_http_cidr" {
 
 variable "ami" {
   description = "AMI ID for EC2 instances"
-  default     = "ami-0123456789abcdef0"
+  default     = "ami-05d38e26fe1de9655"
 }
 
 variable "instance_type" {
@@ -35,7 +35,7 @@ variable "instance_type" {
 
 variable "rds_engine" {
   description = "Database engine for RDS instance"
-  default     = "mysql"
+  default     = "aurora-mysql"
 }
 
 variable "rds_database_name" {
@@ -56,6 +56,11 @@ variable "rds_backup_retention_period" {
 variable "rds_deletion_protection" {
   description = "Enable deletion protection for RDS instance"
   default     = false
+}
+
+variable "skip_final_snapshot" {
+  description = "Skip final snapshot for RDS instance"
+  default = true
 }
 
 variable "rds_auto_pause" {
@@ -80,5 +85,6 @@ variable "rds_seconds_until_auto_pause" {
 
 variable "rds_cloudwatch_logs_exports" {
   description = "List of CloudWatch logs to export for RDS instance"
-  default     = ["audit", "error", "general", "slowquery"]
+  type = list(string)
+  default = ["audit", "error", "general", "slowquery"]
 }
