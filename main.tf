@@ -130,6 +130,26 @@ resource "aws_security_group" "db" {
   }
 }
 
+resource "aws_launch_configuration" "web_lc" {
+  name_prefix                 = "web-lc"
+  image_id                    = var.ami
+  instance_type               = var.instance_type
+  security_groups             = [aws_security_group.web.id]
+  key_name                    = var.key_name  # Assuming you have the key_name variable set
+  associate_public_ip_address = true         # Assuming you want public IPs for instances
+}
+
+resource "aws_autoscaling_group" "web_asg" {
+  name                 = "web-asg"
+  launch_configuration = aws_launch_configuration.web_lc.name
+  vpc_zone_identifier  = [aws_subnet.public_a.id, aws_subnet.public_b.id]
+  min_size             = 1
+  max_size             = 5
+  desired_capacity     = 2
+  health_check_grace_period = 300
+  health_check_type    = "EC2"
+}
+
 resource "aws_rds_cluster" "db" {
   engine                     = var.rds_engine
   engine_mode                = "serverless"
