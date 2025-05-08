@@ -8,7 +8,7 @@ This Terraform script sets up an AWS environment with a scalable and secure web 
 - Secure communication setup between EC2 instances and the RDS instance.
 
 ## Approach
-
+new 3
 The approach for setting up the scalable and secure web application architecture involves the following steps:
 
 1. Define the Infrastructure: Configure the VPC, subnets, security groups, EC2 instances, load balancer, and RDS instance using Terraform resources.
