@@ -73,4 +73,4 @@ The design and technology choices made during the task were based on the followi
 6. Flexibility: The Terraform script includes configurable variables to allow customization based on specific requirements, such as AMI, instance type, and database configurations.
 
 Please refer to the Terraform documentation and AWS documentation for more details on the technologies used and the specific resource configurations.
-
+new 1
