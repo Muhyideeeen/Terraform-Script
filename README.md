@@ -6,7 +6,7 @@ This Terraform script sets up an AWS environment with a scalable and secure web 
 - Auto Scaling Group of EC2 instances behind an Application Load Balancer.
 - An RDS instance for the database.
 - Secure communication setup between EC2 instances and the RDS instance.
-
+new 4
 ## Approach
 
 The approach for setting up the scalable and secure web application architecture involves the following steps:
