@@ -1,0 +1,9 @@
+# Copy this to terraform.tfvars and customize for your env
+
+aws_region = "us-east-1"
+
+# Backend: update bucket/table in backend.tf before running init
+
+# RDS credentials (if you enable RDS module)
+# rds_username = "dbadmin"
+# rds_password = "CHANGE_ME"
